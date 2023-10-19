@@ -1,0 +1,15 @@
+configuration:
+  swagger:
+    app: 'Movie System'
+    description: 'A mini Netflix built with Spring Boot'
+    developer: 'Arijan Komsic'
+    email: 'arijan.komsic@stu.ibu.edu.ba'
+
+spring:
+  data:
+    mongodb:
+      uri:
+        mongodb+srv://arijankomsic:arijan0709@cluster0:
+          fapgisk:
+            mongodb:
+              net/?retryWrites=true&w=majority:
