@@ -47,7 +47,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/filter")
-    public ResponseEntity<UserDTO> filterUser(@RequestParam String email) {
-        return ResponseEntity.ok(userService.filterByEmail(email));
+    public ResponseEntity<UserDTO> filterUser(@RequestParam String username) {
+        return ResponseEntity.ok(userService.filterByUserName(username));
     }
 }

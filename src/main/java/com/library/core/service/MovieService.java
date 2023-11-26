@@ -20,7 +20,4 @@ public class MovieService {
         return movieRepository.findAll();
     }
 
-    public Movie findById(@PathVariable int id){
-        return movieRepository.findById(id);
-    }
 }

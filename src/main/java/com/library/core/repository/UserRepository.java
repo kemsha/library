@@ -22,7 +22,7 @@ public interface UserRepository extends MongoRepository<User, String> {
     @Query(value = "{email:?0}", fields = "{'id': 1, 'firstname': 1, 'lastname': 1, 'email': 1, 'username': 1, 'userType': 1}")
     Optional<User> findByEmailCustom(String email);
 
-    Optional<User> findByFirstByEmailLike(String emailPattern);
+    Optional<User> findByUsername(String username);
 
     List<User> findByEmailAndUserTypeOrderByCreationDateDesc(String email, UserType userType);
 }

@@ -69,8 +69,8 @@ public class UserService {
         user.ifPresent(userRepository::delete);
     }
 
-    public UserDTO filterByEmail(String email) {
-        Optional<User> user = userRepository.findByFirstByEmailLike(email);
+    public UserDTO filterByUserName(String username) {
+        Optional<User> user = userRepository.findByUsername(username);
 
         return user.map(UserDTO::new).orElse(null);
     }

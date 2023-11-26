@@ -1,12 +1,9 @@
-package com.library.core.model;
+package com.library.rest.dto;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.library.core.model.Movie;
 
-@Document
-public class Movie {
+public class MovieDTO {
 
-    @Id
     private int id;
 
     private String title;
@@ -17,6 +14,13 @@ public class Movie {
 
     private String description;
 
+    public MovieDTO(Movie movie) {
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.yearOfRelease = yearOfRelease;
+        this.description = description;
+    }
 
     public int getID() { return id; }
 
