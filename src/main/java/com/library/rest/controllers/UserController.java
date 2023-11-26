@@ -4,6 +4,7 @@ import com.library.core.service.UserService;
 import com.library.rest.dto.UserDTO;
 import com.library.rest.dto.UserRequestDTO;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/users")
+@SecurityRequirement(name = "JWT Security")
 public class UserController {
 
     private final UserService userService;
@@ -50,4 +52,6 @@ public class UserController {
     public ResponseEntity<UserDTO> filterUser(@RequestParam String username) {
         return ResponseEntity.ok(userService.filterByUserName(username));
     }
+
+
 }
