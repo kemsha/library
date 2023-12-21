@@ -11,3 +11,7 @@ spring:
       host: localhost
       port: 27017
       database: library
+
+security:
+  jwt:
+    secret: 'fjWhWmSuM4hby0GbwrV9NchFEF4Gu24kfi8TbFLDeBYD68ez9aLtNUaBVMDiA1Yd'

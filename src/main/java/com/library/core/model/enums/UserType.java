@@ -1,5 +1,5 @@
 package com.library.core.model.enums;
 
 public enum UserType {
-    GUEST, MEMBER, LIBRARIAN, ADMIN
+    GUEST, MEMBER, ADMIN
 }
