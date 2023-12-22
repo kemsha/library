@@ -41,7 +41,7 @@ public class MovieControllerTest {
 
     @Test
     void shouldReturnAllMovies() throws Exception {
-        Movie movie = new Movie():
+        Movie movie = new Movie();
         movie.setTitle("The Godfather");
         movie.setGenre("Thriller");
         movie.setYearOfRelease(1972);

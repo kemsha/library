@@ -20,7 +20,7 @@ public class MovieRepoTest {
         List<Movie> movies = movieRepository.findAll();
 
         Assertions.assertEquals(1, movies.size());
-        Assertions.assertEquals("Lord of the Rings", movies.get(0),getTitle());
+        Assertions.assertEquals("Lord of the Rings", movies.get(0).getTitle());
     }
 
     @Test

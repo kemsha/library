@@ -6,6 +6,7 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import com.library.core.model.Movie;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
@@ -15,38 +16,38 @@ import java.util.Date;
 public class MovieTest {
 
     @Test
-    void shouldCreateNewMovie(){
+    void shouldCreateNewBook() {
         Movie movie = new Movie(
-                14,
-                "Test Movie",
-                "Fiction",
-                2003,
-                "Test description"
+                "some id",
+                "123456",
+                "Neki film",
+                "Fantazija",
+                2004,
+                "ovo je neki film"
         );
-        Assertions.assertEquals("Test Movie", movie.getTitle());
-        Assertions.assertEquals("Fiction", movie.getGenre());
+        Assertions.assertEquals("Neki film", movie.getTitle());
+        Assertions.assertEquals("fantazija", movie.getGenre());
     }
 
     @Test
-    void shouldCompareTwoMovies(){
+    void shouldCompareTwoMovies() {
         Movie movie1 = new Movie(
-                14,
-                "Test movie1",
-                "Fiction",
+                "12",
+                "123654",
+                "Random movie",
+                "Adventure",
                 2003,
-                "Test Description 1"
+                "This is some movie"
+        );
+        Movie movie2 = new Movie(
+                "12",
+                "123654",
+                "Random movie",
+                "Adventure",
+                2003,
+                "This is some movie"
         );
 
-        Movie movie2 = new Movie(
-                14,
-                "Test movie1",
-                "Fiction",
-                2003,
-                "Test Description 1"
-        );
-        AssertionsForInterfaceTypes
-                .assertThat(movie1)
-                .usingRecursiveComparison()
-                .isEqualTo(movie2);
+        AssertionsForInterfaceTypes.assertThat(movie1).usingRecursiveComparison().isEqualTo(movie2);
     }
 }

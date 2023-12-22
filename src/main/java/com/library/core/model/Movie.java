@@ -2,12 +2,15 @@ package com.library.core.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import java.util.Date;
 
 @Document
 public class Movie {
 
     @Id
-    private int id;
+    private String id;
+
+    private String isbn;
 
     private String title;
 
@@ -18,9 +21,20 @@ public class Movie {
     private String description;
 
 
-    public int getID() { return id; }
+    public Movie(String id, String isbn, String title, String genre, int yearOfRelease, String description){
+        this.id = id;
+        this.isbn = isbn;
+        this.title = title;
+        this.genre = genre;
+        this.yearOfRelease = yearOfRelease;
+        this.description = description;
+    }
+    public Movie() { }
 
-    public void setId(int id) { this.id = id;}
+
+    public String getID() { return id; }
+
+    public void setId(String id) { this.id = id;}
 
     public String getTitle() { return title; }
 
@@ -37,4 +51,13 @@ public class Movie {
     public String getDescription() { return description; }
 
     public void setDescription(String description) { this.description = description; }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
 }

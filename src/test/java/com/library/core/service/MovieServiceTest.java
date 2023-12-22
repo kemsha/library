@@ -2,10 +2,10 @@ package com.library.core.service;
 
 import com.library.core.model.Movie;
 import com.library.core.repository.MovieRepository;
+import com.library.rest.dto.MovieRequestDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,23 +32,23 @@ public class MovieServiceTest {
         Mockito.when(movieRepository.save(ArgumentMatchers.any(Movie.class))).thenReturn(movie);
 
         Movie savedMovie = movieService.addMovie(new MovieRequestDTO(movie));
-        Assertions.assertThat(movie.getTitle()).isEqualTo(savedMovie.getTitle());
-        Assertions.assertThat(movie.getGenre()).isNotNull();
+        Assertions.assertEquals(movie.getTitle(), savedMovie.getTitle());
+        Assertions.assertEquals(movie.getTitle(),savedMovie.getTitle());
         System.out.println(savedMovie.getID());
     }
 
     @Test
     public void shouldReturnBookById() {
         Movie movie = new Movie();
-        movie.setId(12);
+        movie.setId("12");
         movie.setTitle("The Godfather");
         movie.setGenre("Thriller");
         movie.setYearOfRelease(1972);
 
-        Mockito.when(movieRepository.findById(13).thenReturn(Optional.of(movie)));
+        Mockito.when(movieRepository.findById("someMongoId")).thenReturn(Optional.of(movie));
 
-            Movie foundMovie = movieService.getMovieById(13);
-            Assertions.assertThat(foundMovie.getTitle()).isEqualTo("The Godfather");
+            Movie foundMovie = movieService.getMoviesById("13");
+            Assertions.assertEquals(foundMovie.getTitle(), "The Godfather");
     }
 
 }
